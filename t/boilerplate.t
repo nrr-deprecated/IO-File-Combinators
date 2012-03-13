@@ -1,6 +1,6 @@
 #!perl -T
 
-use 5.006;
+use 5.010;
 use strict;
 use warnings;
 use Test::More tests => 3;
