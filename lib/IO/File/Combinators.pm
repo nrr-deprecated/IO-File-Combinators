@@ -1,8 +1,7 @@
 package IO::File::Combinators;
 
-use 5.006;
-use strict;
-use warnings;
+use 5.010;
+use strictures;
 
 =head1 NAME
 
@@ -35,18 +34,42 @@ if you don't export anything, such as for a purely object-oriented module.
 
 =head1 SUBROUTINES/METHODS
 
-=head2 function1
-
 =cut
 
-sub function1 {
+sub with_open_filehandle
+{
+        my ($fh, $callback) = @_;
+
+        try {
+                $callback->($fh);
+        }
+        finally {
+                $fh->close;
+        };
 }
 
-=head2 function2
+sub with_file_reader
+{
+        my ($filename, $callback) = @_;
 
-=cut
+        with_open_filehandle(IO::File->new($filename, 'r') => sub {
+                my ($fh) = @_;
 
-sub function2 {
+                while (my $line = $fh->getline) {
+                        $callback->($line);
+                }
+        });
+}
+
+sub with_file_writer
+{
+        my ($filename, $callback) = @_;
+
+        with_open_filehandle(IO::File->new($filename, 'w') => sub {
+                my ($fh) = @_;
+
+                $callback->($fh);
+        });
 }
 
 =head1 AUTHOR
