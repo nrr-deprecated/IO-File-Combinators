@@ -78,12 +78,9 @@ Nathaniel Reindl, C<< <nrr at corvidae.org> >>
 
 =head1 BUGS
 
-Please report any bugs or feature requests to C<bug-io-file-combinators at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=IO-File-Combinators>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
+Bugs? Hopefully, none, but if there are any, send me mail.
 
-
-
+This distribution needs more meaningful tests.
 
 =head1 SUPPORT
 
