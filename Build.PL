@@ -14,6 +14,8 @@ my $builder = Module::Build->new(
     requires => {
         'perl' => 5.010,
         'strictures' => 0,
+        'Exporter::Simple' => 0,
+        'Try::Tiny' => 0,
     },
     add_to_cleanup      => [ 'IO-File-Combinators-*' ],
     create_makefile_pl => 'traditional',

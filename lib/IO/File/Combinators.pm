@@ -1,7 +1,11 @@
 package IO::File::Combinators;
+use base qw[ Exporter::Simple ];
 
 use 5.010;
 use strictures;
+
+use IO::File;
+use Try::Tiny;
 
 =head1 NAME
 
