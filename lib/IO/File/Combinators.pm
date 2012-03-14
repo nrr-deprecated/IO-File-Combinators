@@ -40,7 +40,7 @@ if you don't export anything, such as for a purely object-oriented module.
 
 =cut
 
-sub with_open_filehandle
+sub with_open_filehandle : Exportable
 {
         my ($fh, $callback) = @_;
 
@@ -52,7 +52,7 @@ sub with_open_filehandle
         };
 }
 
-sub with_file_reader
+sub with_file_reader : Exportable
 {
         my ($filename, $callback) = @_;
 
@@ -65,7 +65,7 @@ sub with_file_reader
         });
 }
 
-sub with_file_writer
+sub with_file_writer : Exportable
 {
         my ($filename, $callback) = @_;
 
